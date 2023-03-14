@@ -32,7 +32,7 @@ app.use("/api/v1/transaction", isAuth, transactionRouter);
 //serving
 app.use("/", (req, res, next) => {
   try {
-    res.sendFile(path.join(__dirname, "/index.html"));
+    res.sendFile(path.join(__dirname, "/* /index.html"));
   } catch (error) {
     next(error);
   }
