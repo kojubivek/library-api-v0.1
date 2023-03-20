@@ -11,7 +11,7 @@ const PORT = process.env.NODE_ENV || 8000;
 
 //connect to database
 import { connectDB } from "./src/config/dbConfig.js";
-connectDB();
+// connectDB();
 
 //middlewares
 app.use(express.json());
@@ -29,21 +29,25 @@ app.use("/api/v1/user", userRouter);
 app.use("/api/v1/book", isAuth, bookRouter);
 app.use("/api/v1/transaction", isAuth, transactionRouter);
 
+app.use("/register", (req, res) => {
+  res.send("OOOPS");
+});
 //serving
 app.use("/", (req, res, next) => {
   try {
-    res.sendFile(path.join(__dirname, "/client/build/index.html"));
+    res.sendFile(path.join(__dirname, "/index.html"));
   } catch (error) {
     next(error);
   }
 });
 
 // all uncaught request
-app.use("*", (req, res) => {
-  res.json({
-    message: "System status is healthy!",
-  });
-});
+// app.use("*", (req, res) => {
+//   // res.redirect("/");
+//   res.json({
+//     message: "System status is healthy!",
+//   });
+// });
 
 //global error handler
 app.use((error, req, res, next) => {
