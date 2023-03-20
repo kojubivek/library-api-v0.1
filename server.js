@@ -35,7 +35,7 @@ app.use("/register", (req, res) => {
 //serving
 app.use("/", (req, res, next) => {
   try {
-    res.sendFile(path.join(__dirname, "/index.html"));
+    res.sendFile(path.join(__dirname, "/client/build/index.html"));
   } catch (error) {
     next(error);
   }
