@@ -33,7 +33,7 @@ app.use("/register", (req, res) => {
   res.send("OOOPS");
 });
 //serving
-app.use("/", (req, res, next) => {
+app.get("/", (req, res, next) => {
   try {
     res.sendFile(path.join(__dirname, "/client/build/index.html"));
   } catch (error) {
@@ -66,3 +66,4 @@ app.listen(PORT, (error) => {
     ? console.log(error)
     : console.log(`server is running at http://localhost:${PORT}`);
 });
+export default app;
