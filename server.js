@@ -11,7 +11,7 @@ const PORT = process.env.NODE_ENV || 8000;
 
 //connect to database
 import { connectDB } from "./src/config/dbConfig.js";
-// connectDB();
+connectDB();
 
 //middlewares
 app.use(express.json());
